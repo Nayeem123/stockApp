@@ -15,7 +15,7 @@ import org.springframework.web.server.ResponseStatusException;
 @Slf4j
 public class AuthService {
 
-    private static final String authMicroserviceUrl = "http://localhost:8082";
+    private static final String authMicroserviceUrl = "http://localhost:8181";
 
     private final RestTemplate restTemplate;
 
