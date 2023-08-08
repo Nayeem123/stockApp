@@ -1,6 +1,7 @@
 package com.example.Module2.controller;
 
 
+import com.example.Module2.model.UserStockPreference;
 import com.example.Module2.service.KafkaProducer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -13,10 +14,10 @@ public class KafkaController {
     KafkaProducer mps;
 
     @GetMapping("/send")
-    @PreAuthorize("isAuthenticated()")
-    public String publishMessage(@RequestBody String message , @RequestHeader("Authorization") String autho){
-        String jwtToken=autho.substring(7);
-        mps.sendMessage(message,jwtToken);
+   // @PreAuthorize("isAuthenticated()")
+    public String publishMessage(@RequestBody UserStockPreference message ){
+      //  String jwtToken=autho.substring(7);
+        mps.sendMessage(message);
         return "Data Published";
     }
 }
