@@ -13,12 +13,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Module2Application {
 
 	public static void main(String[] args) {
-		
-		HttpsURLConnection.setDefaultHostnameVerifier(new HostnameVerifier() {
-		    public boolean verify(String hostname, SSLSession session) {
-		        return true;
-		    }
-		});
+
 		SpringApplication.run(Module2Application.class, args);
 		
 		

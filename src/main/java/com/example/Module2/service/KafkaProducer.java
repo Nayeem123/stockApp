@@ -1,6 +1,6 @@
 package com.example.Module2.service;
 
-import com.example.Module2.model.UserStockPreference;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.kafka.KafkaException;
@@ -12,15 +12,15 @@ import org.springframework.web.server.ResponseStatusException;
 public class KafkaProducer {
 
     @Autowired
-    private KafkaTemplate<String,UserStockPreference> template;
+    private KafkaTemplate<String,Object> template;
 
     @Autowired
     private AuthService authService;
     private String topic = "send";
-    public void sendMessage(UserStockPreference message){
+    public void sendMessage(String message , String jwtToken){
         try {
             // Authenticate and authorize the user
-            //authService.authenticateAndAuthorize(jwtToken);
+            authService.authenticateAndAuthorize(jwtToken);
                 template.send(topic, message);
 
         }
