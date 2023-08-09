@@ -4,6 +4,7 @@ import com.example.Module2.Validation.ValidOperation;
 import lombok.*;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import java.util.List;
 
 @Getter
@@ -18,7 +19,7 @@ public class UserStockPreference {
     private String userId;
     @NotBlank(message="watchList shouldn't be null or empty")
     private String watchList;
-//    @NotBlank(message="stock shouldn't be null or empty")
+    @NotEmpty(message="stock shouldn't be null or empty")
     private List<String> stock;
 
 
