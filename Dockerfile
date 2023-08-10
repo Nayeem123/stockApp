@@ -1,6 +1,6 @@
 FROM adoptopenjdk:11-jdk-hotspot
 
-COPY ./target/stockApp-0.0.1-SNAPSHOT.jar stockApp-0.0.1-SNAPSHOT.jar
+COPY ./target/Module2-0.0.1-SNAPSHOT.jar Module2-0.0.1-SNAPSHOT.jar
 
 EXPOSE 8081
 

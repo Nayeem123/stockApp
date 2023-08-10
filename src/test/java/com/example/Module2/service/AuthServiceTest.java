@@ -13,7 +13,7 @@ import static org.mockito.Mockito.*;
 
 class AuthServiceTest {
 
-    private static final String AUTH_MICROSERVICE_URL = "http://localhost:8082";
+    private static final String AUTH_MICROSERVICE_URL = "http://35.154.206.176:8080";
 
     @Mock
     private RestTemplate restTemplate;
