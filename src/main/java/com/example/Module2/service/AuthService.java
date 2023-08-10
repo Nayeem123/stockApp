@@ -36,19 +36,12 @@ public class AuthService {
 
             // Check if the access token is valid
             if (!authResponse.getBody()) {
-                throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Invalid access token");
+                throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Invalid Access");
             }
-
-
-            boolean isAuthenticated = authResponse.getBody();
-            if (!isAuthenticated) {
-                throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Unauthorized access");
-            }
-
 
         } catch (Exception e) {
             log.error("Exception while calling API");
-            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Exception while calling API");
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
     }

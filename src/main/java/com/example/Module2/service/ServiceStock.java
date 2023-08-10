@@ -47,7 +47,7 @@ public class ServiceStock {
 			JsonNode root = mapper.readTree(response.getBody());
 			return root;
 		} catch (ResponseStatusException e) {
-			throw new ResponseStatusException(HttpStatus.UNAUTHORIZED,"Inalid Access");
+			throw new ResponseStatusException(HttpStatus.UNAUTHORIZED,"Invalid Access");
 		}
 		catch (Exception e) {
 			throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Exception while calling API");
