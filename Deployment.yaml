@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stockms-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: stockms
+  template:
+    metadata:
+      labels:
+        app: stockms
+    spec:
+      containers:
+        - name: stockms-container
+          image: ankitrai9811/stockms:1
+          ports:
+            - containerPort: 8081
