@@ -24,7 +24,9 @@ public class KafkaProducer {
             // Authenticate and authorize the user
             authService.authenticateAndAuthorize(jwtToken);
                 template.send(topic, message);
+                message.toString();
                 log.info("Message submitted");
+
 
         }
         catch (ResponseStatusException e){

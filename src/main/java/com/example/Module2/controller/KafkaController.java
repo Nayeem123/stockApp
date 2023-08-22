@@ -13,7 +13,7 @@ public class KafkaController {
     @Autowired
     KafkaProducer mps;
 
-    @GetMapping("/send")
+    @PostMapping("/send")
     public String publishMessage(@RequestBody @Valid UserStockPreference message , @RequestHeader("Authorization") String autho ){
         String jwtToken=autho.substring(7);
         mps.sendMessage(message,jwtToken);

@@ -12,7 +12,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserStockPreference {
+public class UserStockPreference  {
     @ValidOperation
     private String operation;
     @NotBlank(message="userId shouldn't be null or empty")
@@ -24,3 +24,4 @@ public class UserStockPreference {
 
 
 }
+
