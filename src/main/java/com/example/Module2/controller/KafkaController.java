@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("/message")
+@RequestMapping("/user")
 public class KafkaController {
     @Autowired
     KafkaProducer mps;
 
-    @PostMapping("/send")
+    @PostMapping("/stockprefrence")
     public String publishMessage(@RequestBody @Valid UserStockPreference message , @RequestHeader("Authorization") String autho ){
         String jwtToken=autho.substring(7);
         mps.sendMessage(message,jwtToken);
