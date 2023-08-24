@@ -1,6 +1,7 @@
 package com.example.Module2.service;
 
 import com.example.Module2.model.UserStockPreference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,7 +15,7 @@ import org.springframework.web.server.ResponseStatusException;
 public class KafkaProducer {
 
     @Autowired
-    private KafkaTemplate<String,UserStockPreference> template;
+    private KafkaTemplate<String,Object> template;
 
     @Autowired
     private AuthService authService;
@@ -23,7 +24,8 @@ public class KafkaProducer {
         try {
             // Authenticate and authorize the user
             authService.authenticateAndAuthorize(jwtToken);
-                template.send(topic, message);
+            ObjectMapper mapper = new ObjectMapper();
+            template.send(topic, mapper.writeValueAsString(message));
                 message.toString();
                 log.info("Message submitted");
 
